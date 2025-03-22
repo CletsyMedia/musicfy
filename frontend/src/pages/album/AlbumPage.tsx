@@ -131,7 +131,7 @@ const AlbumPage = () => {
             <ParticleConnectionEffect id="album-particle-effect" />
           </div>
           <div className="relative z-10">
-            <div className="flex gap-6 p-6 pb-8">
+            <div className="flex gap-1.5 p-6 pb-8 sm:gap-6">
               <img
                 src={currentAlbum.imageUrl}
                 alt={currentAlbum.title}
@@ -139,7 +139,7 @@ const AlbumPage = () => {
               />
               <div className="flex flex-col justify-end">
                 <p className="text-base font-medium">Album</p>
-                <h1 className="my-1 text-lg font-bold md:my-4 md:text-4xl lg:text-7xl">
+                <h1 className="my-1 font-bold text-md md:my-4 md:text-4xl lg:text-7xl">
                   {currentAlbum.title}
                 </h1>
                 <div className="flex items-center text-sm text-zinc-100">
