@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useAuthStore } from "@/stores/useAuthStore";
 import Header from "./components/Header";
 import AdminDashboardStats from "./components/AdminDashboard";
@@ -38,6 +39,34 @@ const AdminPage = () => {
 
   return (
     <div className="min-h-screen p-3 bg-gradient-to-b from-zinc-900 via-zinc-900 to-black text-zinc-100 md:p-8">
+      {/* Add SEO Meta Tags */}
+      <Helmet>
+        <title>Admin Dashboard - Musicfy</title>
+        <meta name="robots" content="noindex, nofollow" />
+        <meta
+          name="description"
+          content="Manage your Musicfy admin dashboard. View and manage songs, albums, and statistics. Stay in control of your music streaming platform."
+        />
+        <meta
+          name="keywords"
+          content="Musicfy, admin, dashboard, manage songs, manage albums, music statistics, music streaming"
+        />
+        <meta property="og:title" content="Admin Dashboard - Musicfy" />
+        <meta
+          property="og:description"
+          content="Manage your Musicfy admin dashboard. View and manage songs, albums, and statistics. Stay in control of your music streaming platform."
+        />
+        <meta
+          property="og:image"
+          content="https://musicfy-zvck.onrender.com/logo.png"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://musicfy-zvck.onrender.com/admin"
+        />
+        <link rel="canonical" href="https://musicfy-zvck.onrender.com/admin" />
+      </Helmet>
       {isLoading ? <HeaderSkeleton /> : <Header />}
 
       {isLoading ? <DashboardStatsSkeleton /> : <AdminDashboardStats />}

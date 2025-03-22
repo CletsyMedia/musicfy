@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import { useMusicStore } from "@/stores/useMusicStore";
 import { useEffect } from "react";
@@ -28,6 +29,34 @@ const HomePage = () => {
 
   return (
     <main className="flex flex-col h-screen bg-gradient-to-b from-zinc-800 to-zinc-900">
+      {/* Add SEO Meta Tags */}
+      <Helmet>
+        <title>Musicfy | Better Songs, Better Experience</title>
+        <meta
+          name="description"
+          content="Musicfy is a music streaming app like Spotify. Stream your favorite songs, albums, and playlists. Discover new music tailored just for you. Connect with friends in the chat space and see what they're listening to."
+        />
+        <meta
+          name="keywords"
+          content="Musicfy, music, streaming, songs, albums, playlists, trending, made for you"
+        />
+        <meta
+          property="og:title"
+          content="Musicfy | Better Songs, Better Experience"
+        />
+        <meta
+          property="og:description"
+          content="Musicfy is a music streaming app like Spotify. Stream your favorite songs, albums, and playlists. Discover new music tailored just for you. Connect with friends in the chat space and see what they're listening to."
+        />
+        <meta
+          property="og:image"
+          content="https://musicfy-zvck.onrender.com/logo.png"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://musicfy-zvck.onrender.com" />
+        <link rel="canonical" href="https://musicfy-zvck.onrender.com" />
+      </Helmet>
+
       {/* Navbar */}
       <Navbar />
 

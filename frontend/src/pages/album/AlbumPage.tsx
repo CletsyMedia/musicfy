@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -97,6 +98,29 @@ const AlbumPage = () => {
 
   return (
     <div className="h-full">
+      {/* SEO */}
+      <Helmet>
+        <title>{currentAlbum.title} - Musicfy</title>
+        <meta
+          name="description"
+          content={`Listen to ${currentAlbum.title} by ${currentAlbum.artist} on Musicfy. Explore ${currentAlbum.songs.length} songs from this album.`}
+        />
+        <meta
+          name="keywords"
+          content={`${currentAlbum.title}, ${currentAlbum.artist}, Musicfy, music, album, songs, streaming, chat`}
+        />
+        <meta property="og:title" content={`${currentAlbum.title} - Musicfy`} />
+        <meta
+          property="og:description"
+          content={`Listen to ${currentAlbum.title} by ${currentAlbum.artist} on Musicfy. Explore ${currentAlbum.songs.length} songs from this album.`}
+        />
+        <meta property="og:image" content={currentAlbum.imageUrl} />
+        <meta property="og:type" content="music.album" />
+        <meta
+          property="og:url"
+          content={`https://musicfy-zvck.onrender.com//album/${albumId}`}
+        />
+      </Helmet>
       <ScrollArea className="h-full rounded-md">
         <div className="relative min-h-full">
           <div
