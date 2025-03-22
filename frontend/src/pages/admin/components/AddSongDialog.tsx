@@ -281,18 +281,19 @@ const AddSongDialog = () => {
           </div>
         </div>
 
-        <DialogFooter>
+        <DialogFooter className="flex flex-row items-center w-full gap-2">
           <Button
             variant="outline"
             onClick={() => setSongDialogOpen(false)}
             disabled={isLoading}
+            className="flex-1 py-[6px] text-center"
           >
             Cancel
           </Button>
           <Button
             onClick={handleSubmit}
             disabled={isLoading}
-            className="text-white"
+            className="flex-1 py-2 text-center text-white"
           >
             {isLoading ? "Uploading..." : "Add Song"}
           </Button>

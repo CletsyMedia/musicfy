@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { MoreVertical, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Helmet } from "react-helmet";
 
 const formatTime = (date: string) => {
   return new Date(date).toLocaleTimeString("en-US", {
@@ -70,6 +71,32 @@ const ChatPage = () => {
 
   return (
     <main className="h-full overflow-hidden rounded-lg bg-gradient-to-b from-zinc-800 to-zinc-900">
+      <Helmet>
+        <title>Chat | Musicfy with friends</title>
+        <meta
+          name="description"
+          content="Chat with friends on Musicfy. Connect, share music, and enjoy seamless conversations"
+        />
+        <meta
+          name="keywords"
+          content="Musicfy, chat, messaging, music, friends, social"
+        />
+        <meta property="og:title" content="Musicfy Chat" />
+        <meta
+          property="og:description"
+          content="Connect with friends, share music, and enjoy seamless conversations on Musicfy."
+        />
+        <meta
+          property="og:image"
+          content="https://musicfy-zvck.onrender.com/logo.png"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://musicfy-zvck.onrender.com/chat"
+        />
+        <link rel="canonical" href="https://musicfy-zvck.onrender.com/chat" />
+      </Helmet>
       <Topbar />
 
       <div className="grid lg:grid-cols-[300px_1fr] sm:grid-cols-[80px_1fr] grid-cols-[60px_1fr] h-[calc(100vh-180px)]">

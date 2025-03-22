@@ -183,17 +183,18 @@ const AddAlbumDialog = () => {
             </Select>
           </div>
         </div>
-        <DialogFooter>
+        <DialogFooter className="flex flex-row items-center w-full gap-2">
           <Button
             variant="outline"
             onClick={() => setAlbumDialogOpen(false)}
             disabled={isLoading}
+            className="flex-1 py-[6px] text-center"
           >
             Cancel
           </Button>
           <Button
             onClick={handleSubmit}
-            className="bg-emerald-500 hover:bg-emerald-600"
+            className="flex-1 py-2 text-center text-white"
             disabled={
               isLoading || !imageFile || !newAlbum.title || !newAlbum.artist
             }
