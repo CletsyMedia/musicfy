@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { useAuthStore } from "@/stores/useAuthStore";
 import Header from "./components/Header";
 import AdminDashboardStats from "./components/AdminDashboard";
@@ -13,6 +12,7 @@ import HeaderSkeleton from "@/components/skeletons/HeaderSkeleton";
 import DashboardStatsSkeleton from "@/components/skeletons/DashboardStatSkeleton";
 import TabsListSkeleton from "@/components/skeletons/TablistSkeleton";
 import TableHeaderSkeleton from "@/components/skeletons/TableHeaderSkeleton";
+import { Helmet } from "react-helmet";
 
 const AdminPage = () => {
   const { isAdmin, isLoading } = useAuthStore();

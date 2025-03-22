@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import { useMusicStore } from "@/stores/useMusicStore";
 import { useEffect } from "react";
@@ -7,6 +6,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { useUser } from "@clerk/clerk-react";
 import SectionGrid from "./components/SectionGrid";
 import { getGreetings } from "@/lib/utils";
+import { Helmet } from "react-helmet";
 
 const HomePage = () => {
   const {

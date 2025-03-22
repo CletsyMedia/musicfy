@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
-    "start": "npm start --prefix backend"
-  },
+  "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+  "start": "npm start --prefix backend",
+  "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+  "dev:backend": "cd backend && npx nodemon src/index.js",
+  "dev:frontend": "cd frontend && npm run dev"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CletsyMedia/spotify-clone.git"
@@ -18,5 +21,12 @@
   "bugs": {
     "url": "https://github.com/CletsyMedia/spotify-clone/issues"
   },
-  "homepage": "https://github.com/CletsyMedia/spotify-clone#readme"
+  "homepage": "https://github.com/CletsyMedia/spotify-clone#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
 }
