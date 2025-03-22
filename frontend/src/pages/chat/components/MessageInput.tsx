@@ -30,7 +30,7 @@ const MessageInput = () => {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && (e.shiftKey || e.metaKey)) {
-      setNewMessage((prev) => prev + "\n");
+      setNewMessage((prev) => prev + "");
     } else if (e.key === "Enter") {
       e.preventDefault();
       handleSend();
@@ -64,7 +64,7 @@ const MessageInput = () => {
           onClick={handleSend}
           disabled={!newMessage.trim()}
         >
-          <Send className="size-4" />
+          <Send className="size-2 sm:size-4" />
         </Button>
       </div>
     </div>

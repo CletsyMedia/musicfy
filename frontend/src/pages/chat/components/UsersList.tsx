@@ -56,7 +56,7 @@ const UsersList = () => {
                 </div>
               ))
             ) : (
-              <div className="text-sm text-center sm:text-lg text-zinc-400">
+              <div className="text-xs text-center sm:text-lg text-zinc-400">
                 No users available.
               </div>
             )}

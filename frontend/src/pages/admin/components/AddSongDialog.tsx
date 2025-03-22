@@ -115,13 +115,13 @@ const AddSongDialog = () => {
   return (
     <Dialog open={songDialogOpen} onOpenChange={setSongDialogOpen}>
       <DialogTrigger asChild>
-        <Button className="bg-emerald-500 hover:bg-emerald-600 text-white">
-          <Plus className="mr-2 h-4 w-4" />
+        <Button className="text-white bg-emerald-500 hover:bg-emerald-600">
+          <Plus className="w-4 h-4 mr-2" />
           Add Song
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="bg-zinc-900 border-zinc-700 max-h-[80vh] overflow-auto">
+      <DialogContent className="bg-zinc-900 border-zinc-700 max-h-[80vh] overflow-auto w-full max-w-xs border-none rounded-md">
         <DialogHeader>
           <DialogTitle>Add New Song</DialogTitle>
           <DialogDescription>
@@ -129,7 +129,7 @@ const AddSongDialog = () => {
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-4 py-4">
+        <div className="py-4 space-y-4">
           <input
             type="file"
             accept="audio/*"
@@ -152,7 +152,7 @@ const AddSongDialog = () => {
 
           {/* image upload area */}
           <div
-            className="flex items-center justify-center p-6 border-2 border-dashed border-zinc-700 rounded-lg cursor-pointer"
+            className="flex items-center justify-center p-6 border-2 border-dashed rounded-lg cursor-pointer border-zinc-700"
             onClick={() => imageInputRef.current?.click()}
           >
             <div className="text-center">
@@ -167,10 +167,10 @@ const AddSongDialog = () => {
                 </div>
               ) : (
                 <>
-                  <div className="p-3 bg-zinc-800 rounded-full inline-block mb-2">
-                    <Upload className="h-6 w-6 text-zinc-400" />
+                  <div className="inline-block p-3 mb-2 rounded-full bg-zinc-800">
+                    <Upload className="w-6 h-6 text-zinc-400" />
                   </div>
-                  <div className="text-sm text-zinc-400 mb-2">
+                  <div className="mb-2 text-sm text-zinc-400">
                     Upload artwork
                   </div>
                   <Button variant="outline" size="sm" className="text-xs">

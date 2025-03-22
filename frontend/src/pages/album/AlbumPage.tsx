@@ -114,21 +114,25 @@ const AlbumPage = () => {
                 className="size-[100px] md:size-[240px] shadow-xl rounded"
               />
               <div className="flex flex-col justify-end">
-                <p className="text-sm font-medium">Album</p>
-                <h1 className="my-1 text-xl font-bold md:my-4 md:text-4xl lg:text-7xl">
+                <p className="text-base font-medium">Album</p>
+                <h1 className="my-1 text-lg font-bold md:my-4 md:text-4xl lg:text-7xl">
                   {currentAlbum.title}
                 </h1>
-                <div className="flex items-center gap-2 text-sm text-zinc-100">
+                <div className="flex items-center text-sm text-zinc-100">
                   <div className="rounded-full">
-                    <Avatar className="w-8 h-8">
+                    <Avatar className="size-5 sm:size-8">
                       <AvatarImage src={selectedUser.imageUrl} />
                       <AvatarFallback>
                         {selectedUser.fullName[0]}
                       </AvatarFallback>
                     </Avatar>
                   </div>
-                  <span className="font-medium text-white">{firstName}</span>
-                  <span>• {currentAlbum.songs.length} songs</span>
+                  <div className="text-xs font-medium">
+                    <span className="ml-1 text-white">{firstName}</span>
+                    <span className="ml-1">
+                      • {currentAlbum.songs.length} songs
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -168,58 +172,66 @@ const AlbumPage = () => {
             </div>
 
             <div className="bg-black/20 backdrop-blur-sm">
-              <div className="grid grid-cols-[16px_4fr_2fr_1fr] gap-4 px-10 py-2 text-sm text-zinc-400 border-b border-white/5">
+              {/* Table Header */}
+              <div className="grid grid-cols-[16px_4fr_2fr_1fr] gap-4 px-4 md:px-10 py-2 text-sm text-zinc-400 border-b border-white/5">
                 <div>#</div>
                 <div>Title</div>
-                <div>Released Date</div>
-                <div>
+                <div className="hidden sm:block">Released Date</div>
+                <div className="hidden sm:block">
                   <Clock className="w-4 h-4" />
                 </div>
               </div>
 
-              <div className="px-6">
-                <div className="py-4 space-y-2">
-                  {currentAlbum.songs.map((song, index) => (
-                    <div
-                      key={song._id}
-                      onClick={() => handleSongClick(index)}
-                      className={`grid grid-cols-[16px_4fr_2fr_1fr] gap-4 px-4 py-2 text-sm text-zinc-400 hover:bg-white/5 rounded-md group cursor-pointer ${
-                        currentSong?.song._id === song._id ? "bg-white/10" : ""
-                      }`}
-                    >
-                      <div className="flex items-center justify-center">
-                        {currentSong?.song._id === song._id && isPlaying ? (
-                          <div className="text-green-500 size-4">♫</div>
-                        ) : (
-                          <span className="group-hover:hidden">
-                            {index + 1}
-                          </span>
-                        )}
-                        {currentSong?.song._id !== song._id && (
-                          <Play className="hidden w-4 h-4 group-hover:block" />
-                        )}
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <img
-                          src={song.imageUrl}
-                          alt={song.title}
-                          className="size-10"
-                        />
-                        <div>
-                          <div className="font-medium text-white">
-                            {song.title}
+              {/* Scrollable Table Content */}
+              <div className="overflow-x-auto">
+                <div className="min-w-[600px] px-4 md:px-6">
+                  <div className="py-4 space-y-2">
+                    {currentAlbum.songs.map((song, index) => (
+                      <div
+                        key={song._id}
+                        onClick={() => handleSongClick(index)}
+                        className={`grid grid-cols-[16px_4fr_2fr_1fr] gap-4 px-4 py-2 text-sm text-zinc-400 hover:bg-white/5 rounded-md group cursor-pointer ${
+                          currentSong?.song._id === song._id
+                            ? "bg-white/10"
+                            : ""
+                        }`}
+                      >
+                        <div className="flex items-center justify-center">
+                          {currentSong?.song._id === song._id && isPlaying ? (
+                            <div className="text-green-500 size-4">♫</div>
+                          ) : (
+                            <span className="group-hover:hidden">
+                              {index + 1}
+                            </span>
+                          )}
+                          {currentSong?.song._id !== song._id && (
+                            <Play className="hidden w-4 h-4 group-hover:block" />
+                          )}
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <img
+                            src={song.imageUrl}
+                            alt={song.title}
+                            className="size-10"
+                          />
+                          <div>
+                            <div className="font-medium text-white">
+                              {song.title}
+                            </div>
+                            <div className="text-xs sm:text-sm">
+                              {song.artist}
+                            </div>
                           </div>
-                          <div>{song.artist}</div>
+                        </div>
+                        <div className="items-center hidden sm:flex">
+                          {song.createdAt.split("T")[0]}
+                        </div>
+                        <div className="items-center hidden sm:flex">
+                          {formatDuration(song.duration)}
                         </div>
                       </div>
-                      <div className="flex items-center">
-                        {song.createdAt.split("T")[0]}
-                      </div>
-                      <div className="flex items-center">
-                        {formatDuration(song.duration)}
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

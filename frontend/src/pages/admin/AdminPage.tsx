@@ -37,10 +37,7 @@ const AdminPage = () => {
   }
 
   return (
-    <div
-      className="min-h-screen bg-gradient-to-b from-zinc-900 via-zinc-900
-   to-black text-zinc-100 p-8"
-    >
+    <div className="min-h-screen p-3 bg-gradient-to-b from-zinc-900 via-zinc-900 to-black text-zinc-100 md:p-8">
       {isLoading ? <HeaderSkeleton /> : <Header />}
 
       {isLoading ? <DashboardStatsSkeleton /> : <AdminDashboardStats />}
