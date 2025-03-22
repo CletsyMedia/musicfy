@@ -15,7 +15,6 @@ const HomePage = () => {
     isLoading,
     madeForYouSongs,
     trendingSongs,
-    featuredSongs,
   } = useMusicStore();
 
   const { user } = useUser();
@@ -27,10 +26,6 @@ const HomePage = () => {
     fetchMadeForYouSongs();
   }, [fetchFeaturedSongs, fetchTrendingSongs, fetchMadeForYouSongs]);
 
-  console.log("Made for you songs", madeForYouSongs);
-  console.log("Trending songs", trendingSongs);
-  console.log("Featured songs", featuredSongs);
-
   return (
     <main className="flex flex-col h-screen bg-gradient-to-b from-zinc-800 to-zinc-900">
       {/* Navbar */}
@@ -39,7 +34,7 @@ const HomePage = () => {
       {/* Scrollable Content */}
       <ScrollArea className="flex-1">
         <div className="p-4 sm:p-6">
-          <h1 className="mb-6 text-2xl font-bold sm:text-3xl">
+          <h1 className="mb-6 text-xl font-bold sm:text-3xl">
             {getGreetings()}, {firstName}
           </h1>
           <FeaturedSection />

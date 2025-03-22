@@ -20,9 +20,9 @@ const LeftSidebar = () => {
   const albumsWithGenres = getAlbumsWithGenres();
 
   return (
-    <div className="h-full flex flex-col gap-2">
+    <div className="flex flex-col h-full gap-2">
       {/* Navigation menu */}
-      <div className="rounded-lg bg-zinc-900 p-4">
+      <div className="p-4 rounded-lg bg-zinc-900">
         <div className="space-y-2">
           <Link
             to={"/"}
@@ -56,10 +56,10 @@ const LeftSidebar = () => {
       </div>
 
       {/* Library section */}
-      <div className="flex-1 rounded-lg bg-zinc-900 p-4">
+      <div className="flex-1 p-4 rounded-lg bg-zinc-900">
         <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center text-white px-2">
-            <Library className="size-5 mr-2" />
+          <div className="flex items-center px-2 text-white">
+            <Library className="mr-2 size-5" />
             <span className="hidden md:inline">Playlists</span>
           </div>
         </div>
@@ -70,37 +70,27 @@ const LeftSidebar = () => {
               <PlaylistSkeleton />
             ) : (
               albumsWithGenres.map((album) => (
-                <div key={album._id} className="group relative">
+                <div key={album._id} className="relative group">
                   <Link
                     to={`/albums/${album._id}`}
-                    className="p-2 hover:bg-zinc-800 rounded-md flex items-center gap-3 cursor-pointer"
+                    className="flex items-center gap-3 p-2 rounded-md cursor-pointer hover:bg-zinc-800"
                   >
                     <img
                       src={album.imageUrl}
                       alt="Playlist img"
-                      className="size-12 rounded-md flex-shrink-0 object-cover"
+                      className="flex-shrink-0 object-cover rounded-md size-8 md:size-12"
                     />
 
-                    <div className="flex-1 min-w-0 hidden md:block">
+                    <div className="flex-1 hidden min-w-0 md:block">
                       <p className="font-medium truncate">{album.title}</p>
-                      <p className="text-sm text-zinc-400 truncate">
+                      <p className="text-sm truncate text-zinc-400">
                         Album • {album.artist}
                       </p>
-                      <p className="text-sm text-zinc-400 truncate">
+                      <p className="text-sm truncate text-zinc-400">
                         Genre • {album.genre?.name || "Unknown Genre"}
                       </p>
                     </div>
                   </Link>
-
-                  {/* Custom Tooltip */}
-                  {/* <div className="absolute top-20 left-1/2 transform -translate-x-1/2 bg-black text-white p-2 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 max-w-[500px] text-sm shadow-2xl z-40">
-                    <p className="font-semibold">
-                      {album.genre?.name || "Unknown Genre"}
-                    </p>
-                    <p className="text-zinc-400">
-                      {album.genre?.description || "No description available."}
-                    </p>
-                  </div> */}
                 </div>
               ))
             )}

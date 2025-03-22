@@ -11,7 +11,7 @@ const UsersList = () => {
     <div className="border-r border-zinc-800">
       <div className="flex flex-col h-full">
         <ScrollArea className="h-[calc(100vh-280px)]">
-          <div className="space-y-2 p-4">
+          <div className="p-1 sm:p-4 sm:space-y-2">
             {isLoading ? (
               <UsersListSkeleton />
             ) : users && users.length > 0 ? (
@@ -28,7 +28,7 @@ const UsersList = () => {
                     }`}
                 >
                   <div className="relative">
-                    <Avatar className="size-8 md:size-12">
+                    <Avatar className="size-6 sm:size-8 md:size-12">
                       <AvatarImage
                         src={user.imageUrl || ""}
                         alt={user.fullName || "User"}
@@ -39,7 +39,7 @@ const UsersList = () => {
                     </Avatar>
                     {/* online indicator */}
                     <div
-                      className={`absolute bottom-0 right-0 h-3 w-3 rounded-full ring-2 ring-zinc-900
+                      className={`absolute bottom-0 right-0 size-1.5 sm:size-3 rounded-full ring-2 ring-zinc-900
                         ${
                           onlineUsers.has(user.clerkId)
                             ? "bg-green-500"
@@ -48,7 +48,7 @@ const UsersList = () => {
                     />
                   </div>
 
-                  <div className="flex-1 min-w-0 lg:block hidden">
+                  <div className="flex-1 hidden min-w-0 lg:block">
                     <span className="font-medium truncate">
                       {user.fullName || "Anonymous"}
                     </span>
@@ -56,7 +56,7 @@ const UsersList = () => {
                 </div>
               ))
             ) : (
-              <div className="text-zinc-400 text-center">
+              <div className="text-sm text-center sm:text-lg text-zinc-400">
                 No users available.
               </div>
             )}

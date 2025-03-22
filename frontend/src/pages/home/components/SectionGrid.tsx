@@ -24,7 +24,7 @@ const SectionGrid = ({
   return (
     <div className="mb-8">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl font-bold">{title}</h2>
+        <h2 className="text-base font-bold sm:text-xl">{title}</h2>
         <Button variant="link" className="text-sm text-zinc-400">
           View all
         </Button>

@@ -33,9 +33,9 @@ const MainLayout = () => {
       >
         {/* Left Sidebar */}
         <ResizablePanel
-          defaultSize={isMobile ? 0 : 20}
-          minSize={isMobile ? 0 : 10}
-          maxSize={isMobile ? 0 : 30}
+          defaultSize={isMobile ? 20 : 20}
+          minSize={isMobile ? 20 : 10}
+          maxSize={isMobile ? 20 : 30}
           collapsedSize={0}
           collapsible
         >
@@ -47,9 +47,9 @@ const MainLayout = () => {
 
         {/* Main Content */}
         <ResizablePanel
-          defaultSize={isMobile ? 100 : 60}
-          minSize={isMobile ? 100 : 40}
-          maxSize={isMobile ? 100 : 80}
+          defaultSize={isMobile ? 80 : 60}
+          minSize={isMobile ? 80 : 40}
+          maxSize={isMobile ? 80 : 80}
         >
           <Outlet />
         </ResizablePanel>

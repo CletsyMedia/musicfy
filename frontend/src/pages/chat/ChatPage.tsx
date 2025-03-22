@@ -72,7 +72,7 @@ const ChatPage = () => {
     <main className="h-full overflow-hidden rounded-lg bg-gradient-to-b from-zinc-800 to-zinc-900">
       <Topbar />
 
-      <div className="grid lg:grid-cols-[300px_1fr] grid-cols-[80px_1fr] h-[calc(100vh-180px)]">
+      <div className="grid lg:grid-cols-[300px_1fr] sm:grid-cols-[80px_1fr] grid-cols-[60px_1fr] h-[calc(100vh-180px)]">
         <UsersList />
 
         {/* Chat Message Area */}
@@ -213,7 +213,7 @@ const NoConversationPlaceholder = () => (
   <div className="flex flex-col items-center justify-center h-full space-y-6">
     <img src="/musicfy.png" alt="Musicfy" className="size-16 animate-bounce" />
     <div className="text-center">
-      <h3 className="mb-1 text-lg font-medium text-zinc-300">
+      <h3 className="mb-1 text-sm font-medium sm:text-lg text-zinc-300">
         No conversation selected
       </h3>
       <p className="text-sm text-zinc-500">Choose a friend to start chatting</p>
